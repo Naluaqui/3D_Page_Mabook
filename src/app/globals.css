@@ -1,0 +1,205 @@
+/* app/globals.css */
+:root {
+  --bg: #ffffff;
+  --text: #0b0b0f;
+  --muted: rgba(0, 0, 0, 0.55);
+  --muted-2: rgba(0, 0, 0, 0.35);
+  --hairline: rgba(0, 0, 0, 0.08);
+  --cta-bg: rgba(0, 0, 0, 0.06);
+  --cta-border: rgba(0, 0, 0, 0.10);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans), system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--hairline);
+  z-index: 10;
+}
+
+.nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  opacity: 0.9;
+}
+
+.navLinks {
+  display: flex;
+  gap: 18px;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.navLinks a:hover {
+  opacity: 1;
+}
+
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+/* HERO */
+.hero {
+  min-height: calc(100vh - 56px);
+  display: grid;
+  place-items: center;
+}
+
+.heroInner {
+  text-align: center;
+  transform: translateY(-24px);
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: clamp(36px, 5.2vw, 62px);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.heroSubtitle {
+  margin: 10px 0 18px;
+  font-size: clamp(13px, 1.6vw, 16px);
+  color: var(--muted);
+  letter-spacing: -0.01em;
+}
+
+.heroCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--cta-bg);
+  border: 1px solid var(--cta-border);
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.72);
+  transition: transform 120ms ease, background 120ms ease, border 120ms ease;
+}
+
+.heroCta:hover {
+  transform: translateY(-1px);
+  background: rgba(0, 0, 0, 0.075);
+  border-color: rgba(0, 0, 0, 0.14);
+}
+
+/* FEATURES */
+.feature {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+}
+
+.featureInner {
+  max-width: 420px;
+  transform: translateY(-20px);
+}
+
+.featureLeft .featureInner {
+  padding-left: 8px;
+}
+
+.featureRight .featureInner {
+  margin-left: auto; /* empurra pra direita */
+  padding-right: 8px;
+  text-align: right;
+}
+
+.featureTitle {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.featureDesc {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
+  max-width: 320px;
+}
+
+.featureRight .featureDesc {
+  margin-left: auto; /* mantém o parágrafo “colado” à direita */
+}
+
+.sceneWrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none; /* importante para não bloquear scroll */
+}
+
+/* deixa a scene maior */
+.sceneWrapper canvas {
+  width: 1200px !important;
+  height: 1200px !important;
+  max-width: none !important;
+}
+
+@media (max-width: 520px) {
+  .navLinks {
+    gap: 14px;
+  }
+  .heroInner {
+    transform: translateY(-18px);
+  }
+
+  /* no mobile, deixa tudo alinhado à esquerda pra não ficar estranho */
+  .featureRight .featureInner {
+    margin-left: 0;
+    padding-right: 0;
+    text-align: left;
+  }
+  .featureRight .featureDesc {
+    margin-left: 0;
+  }
+}
