@@ -1,4 +1,3 @@
-/* app/globals.css */
 :root {
   --bg: #ffffff;
   --text: #0b0b0f;
@@ -79,7 +78,6 @@ a {
   padding: 0 18px;
 }
 
-/* HERO */
 .hero {
   min-height: calc(100vh - 56px);
   display: grid;
@@ -125,7 +123,6 @@ a {
   border-color: rgba(0, 0, 0, 0.14);
 }
 
-/* FEATURES */
 .feature {
   min-height: 100vh;
   display: grid;
@@ -150,7 +147,7 @@ a {
 }
 
 .featureRight .featureInner {
-  margin-left: auto; /* empurra pra direita */
+  margin-left: auto; 
   padding-right: 8px;
   text-align: right;
 }
@@ -171,7 +168,7 @@ a {
 }
 
 .featureRight .featureDesc {
-  margin-left: auto; /* mantém o parágrafo “colado” à direita */
+  margin-left: auto; 
 }
 
 .sceneWrapper {
@@ -183,10 +180,9 @@ a {
   align-items: center;
   justify-content: center;
 
-  pointer-events: none; /* importante para não bloquear scroll */
+  pointer-events: none;
 }
 
-/* deixa a scene maior */
 .sceneWrapper canvas {
   width: 1200px !important;
   height: 1200px !important;
@@ -201,7 +197,6 @@ a {
     transform: translateY(-18px);
   }
 
-  /* no mobile, deixa tudo alinhado à esquerda pra não ficar estranho */
   .featureRight .featureInner {
     margin-left: 0;
     padding-right: 0;
