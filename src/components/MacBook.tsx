@@ -1,7 +1,7 @@
 "use client";
 
 import * as THREE from "three";
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react"; 
 import { useGLTF } from "@react-three/drei";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,46 +16,109 @@ export function MacBook() {
     const topRef = useRef<THREE.Mesh>(null);
     const bottomRef = useRef<THREE.Mesh>(null);
 
-    useEffect(() => {
+    useLayoutEffect(() => { 
         if (!groupRef.current || !topRef.current || !bottomRef.current) return;
-        console.log("Rotação inicial:", groupRef.current.rotation);
 
-        gsap.set(groupRef.current.rotation, { x: -Math.PI / 2, y: 0, z: 0 }); 
-        console.log("Depois do set:", groupRef.current.rotation.x);
+        const group = groupRef.current; 
+        const state = { 
+            x: 1.5, 
+            y: 0, 
+            z: 0,
+
+            px: 0,
+            py: -0.7,
+            pz: 0,
+
+            sx: 1,
+            sy: 1,
+            sz: 1,
+        
+        }; 
+
+        group.rotation.set(state.x, state.y, state.z);
+        group.position.set(state.px, state.py, state.pz);
+        group.scale.set(state.sx, state.sy, state.sz);
+
+        const top = topRef.current;
+
+        const topState = {
+            x: 0,
+            y: 0,
+            z: 0,
+
+            px: 0,
+            py: 0,
+            pz: 0,
+        };
+
+        top.rotation.set(topState.x, topState.y, topState.z);
+
 
         const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: "#section1",
-            start: "top+=1 bottom", 
-            end: "bottom top",
-            scrub: true,
-            invalidateOnRefresh: true, 
-        },
+            scrollTrigger: {
+                trigger: "#section1",
+                start: "top top", 
+                end: "bottom top",
+                scrub: 1.6, 
+                invalidateOnRefresh: true,
+            },
+        });
+        tl.to(state, {
+            x: 0.057755,
+            y: 0,
+            z: 0,
+            ease: "none", 
+            duration: 0.1,
+            onUpdate: () => { 
+                group.rotation.set(state.x, state.y, state.z);
+                group.position.set(state.px, state.py, state.pz);
+                group.scale.set(state.sx, state.sy, state.sz);
+            },
         });
 
-        tl.to(groupRef.current.rotation, {
-        x: Math.PI, 
-        ease: "power2.inOut",
-        immediateRender: false, 
+        tl.to(state, {
+            y: Math.PI,
+            px: 1,
+            sx: 0.6,
+            sy: 0.6,
+            sz: 0.6,
+            ease: "none", 
+            duration: 0.1,
+            onUpdate: () => { 
+                group.rotation.set(state.x, state.y, state.z);
+                group.position.set(state.px, state.py, state.pz);
+                group.scale.set(state.sx, state.sy, state.sz);
+            },
         });
 
-        ScrollTrigger.refresh(); 
+        tl.to(topState, {
+            x: Math.PI / 2.5,
+            py: -0.1,
+            ease: "none",
+            duration: 0.1,
+            onUpdate: () => {
+                top.rotation.set(topState.x, topState.y, topState.z);
+                top.position.set(topState.px, topState.py, topState.pz);
+            },
+        }, "<");
+
+        ScrollTrigger.refresh();
 
         return () => {
-        tl.scrollTrigger?.kill(); 
-        tl.kill(); 
+            tl.scrollTrigger?.kill();
+            tl.kill();
         };
-    }, []); 
+    }, []);
 
     return (
-        <group ref={groupRef} position={[0, -0.7, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <mesh ref={topRef}>
-            <primitive object={(topModel as any).nodes.macBook_TopPart} />
-        </mesh>
+        <group ref={groupRef} position={[0, -0.7, 0]}> 
+            <mesh ref={topRef}>
+                <primitive object={(topModel as any).nodes.macBook_TopPart} />
+            </mesh>
 
-        <mesh ref={bottomRef}>
-            <primitive object={(bottomModel as any).nodes.macBook_BottomPart} />
-        </mesh>
+            <mesh ref={bottomRef}>
+                <primitive object={(bottomModel as any).nodes.macBook_BottomPart} />
+            </mesh>
         </group>
     );
 }

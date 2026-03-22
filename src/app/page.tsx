@@ -19,8 +19,6 @@ export default function Page() {
           </div>
         </nav>
       </header>
-
-      {/* SCENE FIXA E CENTRALIZADA */}
       
 
       <main className="main relative z-10">
@@ -28,7 +26,6 @@ export default function Page() {
           <Scene />
         </div>
 
-        {/* HERO */}
         <section className="hero">
           <div className="heroInner">
             <h1 className="heroTitle">Meet the MacBook Pro M4</h1>
