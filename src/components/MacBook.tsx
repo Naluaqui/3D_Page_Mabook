@@ -56,7 +56,7 @@ export function MacBook() {
 
         const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: "#section1",
+                trigger: "#hero",
                 start: "top top", 
                 end: "bottom top",
                 scrub: 1.6, 
@@ -68,7 +68,7 @@ export function MacBook() {
             y: 0,
             z: 0,
             ease: "none", 
-            duration: 0.1,
+            duration: 0.2,
             onUpdate: () => { 
                 group.rotation.set(state.x, state.y, state.z);
                 group.position.set(state.px, state.py, state.pz);

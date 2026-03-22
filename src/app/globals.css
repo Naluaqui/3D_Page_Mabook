@@ -132,6 +132,14 @@ a {
   align-items: center;
 }
 
+.featureLeft {
+  opacity: 0;
+}
+
+.featureRight {
+  opacity: 0;
+}
+
 .featureInner {
   max-width: 420px;
   transform: translateY(-20px);

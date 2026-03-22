@@ -21,12 +21,12 @@ export default function Page() {
       </header>
       
 
-      <main className="main relative z-10">
+      <main id="main" className="main relative z-10">
         <div className="sceneWrapper">
           <Scene />
         </div>
 
-        <section className="hero">
+        <section id="hero" className="hero">
           <div className="heroInner">
             <h1 className="heroTitle">Meet the MacBook Pro M4</h1>
             <p className="heroSubtitle">Power re-imagined.</p>
@@ -37,7 +37,7 @@ export default function Page() {
           </div>
         </section>
 
-        <section className="feature featureLeft">
+        <section  id="section1" className="feature featureLeft">
           <div className="featureInner">
             <h2 className="featureTitle">Retina Display</h2>
             <p className="featureDesc">
@@ -47,7 +47,7 @@ export default function Page() {
           </div>
         </section>
 
-        <section className="feature featureRight">
+        <section  id="section2" className="feature featureRight">
           <div className="featureInner">
             <h2 className="featureTitle">Pro Performance</h2>
             <p className="featureDesc">
