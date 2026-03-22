@@ -102,6 +102,19 @@ export function MacBook() {
             },
         }, "<");
 
+        tl.to(state, {
+            y: Math.PI + 0.4,
+            px: -1,
+            ease: "none", 
+            duration: 0.1,
+            onUpdate: () => { 
+                group.rotation.set(state.x, state.y, state.z);
+                group.position.set(state.px, state.py, state.pz);
+                group.scale.set(state.sx, state.sy, state.sz);
+            },
+        });
+        
+
         ScrollTrigger.refresh();
 
         return () => {
