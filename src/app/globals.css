@@ -180,20 +180,258 @@ a {
   max-width: none !important;
 }
 
-@media (max-width: 520px) {
-  .navLinks {
-    gap: 14px;
-  }
-  .heroInner {
-    transform: translateY(-18px);
+@media (max-width: 1024px) {
+  .main {
+    padding: 0 20px;
   }
 
-  .featureRight .featureInner {
-    margin-left: 0;
-    padding-right: 0;
-    text-align: left;
+  .hero,
+  .feature {
+    min-height: 82vh;
   }
+
+  .hero {
+    padding-top: 6vh;
+  }
+
+  .heroInner {
+    transform: translateY(-12px);
+  }
+
+  .featureInner {
+    max-width: 360px;
+    transform: translateY(-95px);
+  }
+
+  .featureTitle {
+    font-size: 24px;
+  }
+
+  .featureDesc {
+    font-size: 17px;
+    max-width: 280px;
+  }
+
+  .sceneWrapper canvas {
+    width: 980px !important;
+    height: 980px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 12px 18px;
+    align-items: flex-start;
+  }
+
+  .brand {
+    font-size: 13px;
+  }
+
+  .navLinks {
+    gap: 10px 12px;
+    font-size: 11px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 220px;
+  }
+
+  .main {
+    padding: 0 18px;
+  }
+
+  .hero {
+    min-height: 60svh;
+    padding-top: 56px;
+    align-items: start;
+  }
+
+  .feature {
+    min-height: 60svh;
+  }
+
+  #section1.feature {
+    align-items: start;
+    padding-top: 52svh;
+    padding-bottom: 10svh;
+  }
+
+  #section2.feature {
+    align-items: start;
+    padding-top: 40svh;
+    padding-bottom: 8svh;
+  }
+
+  .heroInner {
+    transform: translateY(0);
+    text-align: center;
+  }
+
+  .heroTitle {
+    font-size: clamp(34px, 7vw, 48px);
+    letter-spacing: -0.03em;
+    line-height: 1.04;
+  }
+
+  .heroSubtitle {
+    font-size: 15px;
+    margin: 10px 0 14px;
+  }
+
+  .heroCta {
+    font-size: 12px;
+    padding: 9px 14px;
+  }
+
+  .featureInner {
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    transform: none;
+  }
+
+  .featureLeft .featureInner,
+  .featureRight .featureInner {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .featureTitle {
+    font-size: 24px;
+    margin: 0 0 10px;
+  }
+
+  .featureDesc,
   .featureRight .featureDesc {
-    margin-left: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .sceneWrapper {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sceneWrapper canvas {
+    width: min(88vw, 700px) !important;
+    height: min(88vw, 700px) !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .nav {
+    padding: 10px 14px;
+    align-items: flex-start;
+  }
+
+  .brand {
+    font-size: 12px;
+  }
+
+  .navLinks {
+    gap: 8px 10px;
+    font-size: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 180px;
+  }
+
+  .main {
+    padding: 0 14px;
+  }
+
+  .hero {
+    min-height: 50svh;
+    padding-top: 48px;
+    align-items: start;
+  }
+
+  .feature {
+    min-height: 50svh;
+  }
+
+  #section1.feature {
+    align-items: start;
+    padding-top: 58svh;
+    padding-bottom: 10svh;
+  }
+
+  #section2.feature {
+    align-items: start;
+    padding-top: 44svh;
+    padding-bottom: 8svh;
+  }
+
+  .heroInner {
+    transform: translateY(0);
+    text-align: center;
+  }
+
+  .heroTitle {
+    font-size: clamp(26px, 10vw, 34px);
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
+
+  .heroSubtitle {
+    font-size: 13px;
+    margin: 8px 0 12px;
+  }
+
+  .heroCta {
+    font-size: 11px;
+    padding: 8px 11px;
+  }
+
+  .featureInner {
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    transform: none;
+  }
+
+  .featureLeft .featureInner,
+  .featureRight .featureInner {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .featureTitle {
+    font-size: 19px;
+    margin: 0 0 8px;
+  }
+
+  .featureDesc,
+  .featureRight .featureDesc {
+    font-size: 13px;
+    line-height: 1.45;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .sceneWrapper {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sceneWrapper canvas {
+    width: min(94vw, 600px) !important;
+    height: min(94vw, 600px) !important;
   }
 }
