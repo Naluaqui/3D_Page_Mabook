@@ -78,10 +78,15 @@ a {
   padding: 0 18px;
 }
 
-.hero {
-  min-height: calc(100vh - 56px);
+.hero,
+.feature {
+  min-height: 75vh;
   display: grid;
-  place-items: center;
+  align-items: center;
+}
+.hero {
+  align-items: start;
+  padding-top: 7vh;
 }
 
 .heroInner {
@@ -123,23 +128,9 @@ a {
   border-color: rgba(0, 0, 0, 0.14);
 }
 
-.feature {
-  min-height: 100vh;
-  display: grid;
-  align-items: center;
-}
-
-.featureLeft {
-  opacity: 0;
-}
-
-.featureRight {
-  opacity: 0;
-}
-
 .featureInner {
   max-width: 420px;
-  transform: translateY(-20px);
+  transform: translateY(-160px);
 }
 
 .featureLeft .featureInner {
@@ -155,13 +146,13 @@ a {
 .featureTitle {
   margin: 0 0 8px;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: -0.03em;
 }
 
 .featureDesc {
   margin: 0;
-  font-size: 12px;
+  font-size: 20px;
   line-height: 1.4;
   color: var(--muted);
   max-width: 320px;

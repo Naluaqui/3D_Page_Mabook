@@ -26,7 +26,7 @@ export function MacBook() {
             z: 0,
 
             px: 0,
-            py: -0.7,
+            py: -1.7,
             pz: 0,
 
             sx: 1,
@@ -53,6 +53,20 @@ export function MacBook() {
 
         top.rotation.set(topState.x, topState.y, topState.z);
 
+        const bottom = bottomRef.current;
+
+        const bottomState = {
+            x: 0,
+            y: 0,
+            z: 0,
+
+            px: 0,
+            py: 0,
+            pz: 0,
+        };
+
+        bottom.rotation.set(bottomState.x, bottomState.y, bottomState.z);
+
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -63,12 +77,13 @@ export function MacBook() {
                 invalidateOnRefresh: true,
             },
         });
+        
         tl.to(state, {
             x: 0.057755,
             y: 0,
             z: 0,
-            ease: "none", 
-            duration: 0.2,
+            ease: "power2.out",
+            duration: 2, 
             onUpdate: () => { 
                 group.rotation.set(state.x, state.y, state.z);
                 group.position.set(state.px, state.py, state.pz);
@@ -78,12 +93,16 @@ export function MacBook() {
 
         tl.to(state, {
             y: Math.PI,
+            x: 0.12,
+            z: -0.08,
             px: 1,
+            py: -0.5,
+            pz: -0.15,
             sx: 0.6,
             sy: 0.6,
             sz: 0.6,
-            ease: "none", 
-            duration: 0.1,
+            ease: "power2.inOut",
+            duration: 15, 
             onUpdate: () => { 
                 group.rotation.set(state.x, state.y, state.z);
                 group.position.set(state.px, state.py, state.pz);
@@ -93,26 +112,41 @@ export function MacBook() {
 
         tl.to(topState, {
             x: Math.PI / 2.5,
-            py: -0.1,
-            ease: "none",
-            duration: 0.1,
+            py: -0.06,
+            pz: 0.02,
+            ease: "power3.out",
+            duration: 4,
             onUpdate: () => {
                 top.rotation.set(topState.x, topState.y, topState.z);
                 top.position.set(topState.px, topState.py, topState.pz);
             },
-        }, "<");
+        }, "<2");
 
         tl.to(state, {
-            y: Math.PI + 0.4,
-            px: -1,
-            ease: "none", 
-            duration: 0.1,
+            y: Math.PI + 0.28,
+            x: -0.08,
+            z: 0.06,
+            px: -0.85,
+            py: -0.15,
+            pz: 0.12,
+            ease: "power2.inOut", 
+            duration: 9,
             onUpdate: () => { 
                 group.rotation.set(state.x, state.y, state.z);
                 group.position.set(state.px, state.py, state.pz);
                 group.scale.set(state.sx, state.sy, state.sz);
             },
         });
+
+        tl.to(bottomState, {
+            x: -Math.PI / 4,
+            ease: "power2.out",
+            duration: 4,
+            onUpdate: () => {
+                bottom.rotation.set(bottomState.x, bottomState.y, bottomState.z);
+                bottom.position.set(bottomState.px, bottomState.py, bottomState.pz);
+            },
+        }, "<5");
         
 
         ScrollTrigger.refresh();
@@ -124,7 +158,7 @@ export function MacBook() {
     }, []);
 
     return (
-        <group ref={groupRef} position={[0, -0.7, 0]}> 
+        <group ref={groupRef} position={[0, -1.7, 0]}> 
             <mesh ref={topRef}>
                 <primitive object={(topModel as any).nodes.macBook_TopPart} />
             </mesh>
